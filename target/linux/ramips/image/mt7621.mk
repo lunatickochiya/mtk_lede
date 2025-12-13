@@ -1487,6 +1487,8 @@ define Device/raisecom_msg1500-x-00
   IMAGE_SIZE := 129280k
   UBINIZE_OPTS := -E 5
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGES += factory.bin
+  IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | check-size
   DEVICE_VENDOR := RAISECOM
   DEVICE_MODEL := MSG1500
   DEVICE_VARIANT := X.00
